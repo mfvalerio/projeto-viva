@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Event } from '../events/model/event';
-import { EventsService } from '../services/events.service';
+import { Service } from '../../services/service';
 import { catchError, Observable, of } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog.component';
@@ -19,13 +19,11 @@ export class EventsComponent implements OnInit {
   //eventsService: EventsService;
 
   constructor(
-    private eventsService: EventsService, 
+    private eventsService: Service, 
     public dialog: MatDialog,
     private router: Router,
     private route: ActivatedRoute
     ) {
-    //this.events = [];
-    //this.eventsService = new EventsService();
     this.events$ = this.eventsService.list().pipe(
       catchError((error) => {
         this.onError('Erro ao carregar eventos.');

@@ -10,3 +10,12 @@ li {
   cursor: pointer;
 }
 
+li.mat-icon-text {
+  display: flex !important;
+  align-items: center;
+
+  p {
+    margin: 0px 0px 0px 4px !important;
+  }
+}
+
